@@ -1,29 +1,28 @@
 body {
   background-color: #000;
   color: #ccc;
-  font-family: Arial, sans-serif;
   text-align: center;
-  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+input, select, button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 300px;
 }
 
 button {
-  background-color: orange;
-  color: black;
+  background-color: #ff7f00;
   border: none;
-  padding: 10px 20px;
-  margin: 0.5rem;
-  font-weight: bold;
+  color: #fff;
   cursor: pointer;
 }
 
-input, select {
-  display: block;
-  margin: 0.5rem auto;
-  padding: 10px;
-  width: 80%;
-  max-width: 300px;
+button:hover {
+  background-color: #ff6f00;
 }
 
-.form-container {
-  margin-top: 2rem;
+h1 {
+  color: #ff7f00;
 }
