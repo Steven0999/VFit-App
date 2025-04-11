@@ -2,42 +2,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness App</title>
+  <title>Vfit App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="auth">
-    <div id="registerForm">
-      <h2>Register</h2>
-      <input id="regName" placeholder="Name" />
-      <input id="regAge" type="number" placeholder="Age" />
-      <select id="regGoal">
-        <option value="">Select Goal</option>
-        <option value="Lose Weight">Lose Weight</option>
-        <option value="Build Muscle">Build Muscle</option>
-        <option value="Body Recomp">Body Recomp</option>
-      </select>
-      <input id="regExperience" type="number" placeholder="Years Training" />
-      <input id="regEmail" type="email" placeholder="Email" />
-      <input id="regUsername" placeholder="Username" />
-      <input id="regPassword" type="password" placeholder="Password" />
-      <input id="regConfirm" type="password" placeholder="Confirm Password" />
-      <button onclick="register()">Register</button>
-    </div>
-
-    <div id="verifyEmail" style="display:none">
-      <h2>Check your email to verify account...</h2>
-      <button onclick="completeVerification()">Simulate Email Verified</button>
-    </div>
-
-    <div id="loginForm" style="display:none">
-      <h2>Login</h2>
-      <input id="loginUsername" placeholder="Username" />
-      <input id="loginPassword" type="password" placeholder="Password" />
-      <button onclick="login()">Login</button>
-    </div>
+  <!-- Welcome Page -->
+  <div id="welcomePage">
+    <h1>Vfit App</h1>
+    <button onclick="showRegister()">Register</button>
+    <button onclick="showLogin()">Login</button>
   </div>
 
+  <!-- Registration Form -->
+  <div id="registerForm" class="authForm" style="display:none">
+    <h2>Register</h2>
+    <input id="regName" placeholder="Name" />
+    <input id="regAge" type="number" placeholder="Age" />
+    <select id="regGoal">
+      <option value="">Select Goal</option>
+      <option value="Lose Weight">Lose Weight</option>
+      <option value="Build Muscle">Build Muscle</option>
+      <option value="Body Recomp">Body Recomp</option>
+    </select>
+    <input id="regExperience" type="number" placeholder="Years Training" />
+    <input id="regEmail" type="email" placeholder="Email" />
+    <input id="regUsername" placeholder="Username" />
+    <input id="regPassword" type="password" placeholder="Password" />
+    <input id="regConfirm" type="password" placeholder="Confirm Password" />
+    <button onclick="register()">Register</button>
+  </div>
+
+  <!-- Email Verification -->
+  <div id="verifyEmail" style="display:none">
+    <h2>Check your email to verify account...</h2>
+    <button onclick="completeVerification()">Simulate Email Verified</button>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="authForm" style="display:none">
+    <h2>Login</h2>
+    <input id="loginUsername" placeholder="Username" />
+    <input id="loginPassword" type="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Home Page -->
   <div id="home" style="display:none">
     <h1>Welcome, <span id="displayName"></span>!</h1>
     <p>Goal: <span id="displayGoal"></span></p>
