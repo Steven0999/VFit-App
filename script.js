@@ -1,3 +1,13 @@
+function showRegister() {
+  document.getElementById('welcomePage').style.display = 'none';
+  document.getElementById('registerForm').style.display = 'block';
+}
+
+function showLogin() {
+  document.getElementById('welcomePage').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'block';
+}
+
 function register() {
   const name = document.getElementById('regName').value;
   const age = document.getElementById('regAge').value;
@@ -44,7 +54,8 @@ function login() {
   if (!user.verified) return alert("Please verify your email first");
   if (user.password !== password) return alert("Wrong password");
 
-  document.getElementById('auth').style.display = 'none';
+  document.getElementById('authForm')?.style.display = 'none';
+  document.getElementById('loginForm').style.display = 'none';
   document.getElementById('home').style.display = 'block';
 
   document.getElementById('displayName').innerText = user.name;
