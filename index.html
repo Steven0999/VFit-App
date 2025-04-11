@@ -6,54 +6,24 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Welcome Page -->
   <div id="welcomePage">
     <h1>Vfit App</h1>
-    <button onclick="showRegister()">Register</button>
-    <button onclick="showLogin()">Login</button>
+    <button id="registerBtn">Register</button>
+    <button id="loginBtn">Login</button>
   </div>
 
-  <!-- Registration Form -->
-  <div id="registerForm" class="form-container" style="display: none;">
+  <div id="registerForm" style="display: none;">
     <h2>Register</h2>
-    <input id="regName" placeholder="Name" />
-    <input id="regAge" type="number" placeholder="Age" />
-    <select id="regGoal">
-      <option value="">Select Goal</option>
-      <option value="Lose Weight">Lose Weight</option>
-      <option value="Build Muscle">Build Muscle</option>
-      <option value="Body Recomp">Body Recomp</option>
-    </select>
-    <input id="regExperience" type="number" placeholder="Years Training" />
-    <input id="regEmail" type="email" placeholder="Email" />
-    <input id="regUsername" placeholder="Username" />
-    <input id="regPassword" type="password" placeholder="Password" />
-    <input id="regConfirm" type="password" placeholder="Confirm Password" />
-    <button onclick="register()">Register</button>
+    <input placeholder="Name" />
+    <button>Back</button>
   </div>
 
-  <!-- Email Verification -->
-  <div id="verifyEmail" style="display: none;">
-    <h2>Check your email to verify your account</h2>
-    <button onclick="completeVerification()">Simulate Email Verified</button>
-  </div>
-
-  <!-- Login Form -->
-  <div id="loginForm" class="form-container" style="display: none;">
+  <div id="loginForm" style="display: none;">
     <h2>Login</h2>
-    <input id="loginUsername" placeholder="Username" />
-    <input id="loginPassword" type="password" placeholder="Password" />
-    <button onclick="login()">Login</button>
+    <input placeholder="Username" />
+    <button>Back</button>
   </div>
 
-  <!-- Home Page -->
-  <div id="home" style="display: none;">
-    <h1>Welcome, <span id="displayName"></span>!</h1>
-    <p>Goal: <span id="displayGoal"></span></p>
-    <p>Experience: <span id="displayExperience"></span> years</p>
-    <h3>Coming Soon...</h3>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
