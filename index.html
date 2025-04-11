@@ -1,27 +1,44 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vfit App</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Welcome Page -->
   <div id="welcomePage">
     <h1>Vfit App</h1>
     <button id="registerBtn">Register</button>
     <button id="loginBtn">Login</button>
   </div>
 
+  <!-- Registration Form -->
   <div id="registerForm" style="display: none;">
     <h2>Register</h2>
-    <input placeholder="Name" />
-    <button>Back</button>
+    <input type="text" id="regName" placeholder="Name">
+    <input type="number" id="regAge" placeholder="Age">
+    <select id="regGoal">
+      <option value="lose weight">Lose Weight</option>
+      <option value="build muscle">Build Muscle</option>
+      <option value="body recomp">Body Recomp</option>
+    </select>
+    <input type="number" id="regExperience" placeholder="Years of Experience">
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="text" id="regUsername" placeholder="Username">
+    <input type="password" id="regPassword" placeholder="Password">
+    <input type="password" id="regConfirmPassword" placeholder="Confirm Password">
+    <button id="submitRegister">Submit</button>
+    <button id="backToWelcomeFromRegister">Back</button>
   </div>
 
+  <!-- Login Form -->
   <div id="loginForm" style="display: none;">
     <h2>Login</h2>
-    <input placeholder="Username" />
-    <button>Back</button>
+    <input type="text" id="loginUsername" placeholder="Username">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button id="submitLogin">Login</button>
+    <button id="backToWelcomeFromLogin">Back</button>
   </div>
 
   <script src="script.js" defer></script>
