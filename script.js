@@ -1,77 +1,90 @@
-// Basic Express server to register users and check for existing usernames
-// Requires: express, cors, body-parser
-
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const app = express();
-const port = 3000;
-
-// Simulate a database with an in-memory object
-const users = {}; // { username: { name, age, goal, ... } }
-
-app.use(cors());
-app.use(bodyParser.json());
-
-// Register endpoint
-app.post('/register', (req, res) => {
-  const { name, age, goal, experience, email, username, password } = req.body;
-
-  if (!name || !age || !goal || !experience || !email || !username || !password) {
-    return res.status(400).json({ success: false, message: 'All fields are required.' });
-  }
-
-  if (users[username]) {
-    return res.status(409).json({ success: false, message: 'Username already taken.' });
-  }
-
-  users[username] = { name, age, goal, experience, email, password, verified: false };
-
-  console.log("New user registered:", users[username]);
-  return res.status(201).json({ success: true, message: 'User registered successfully. Please verify your email.' });
-});
-
-// Simulate verification
-app.post('/verify', (req, res) => {
-  const { username } = req.body;
-
-  if (!users[username]) {
-    return res.status(404).json({ success: false, message: 'User not found.' });
-  }
-
-  users[username].verified = true;
-  return res.status(200).json({ success: true, message: 'Email verified.' });
-});
-
-// Login
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  if (!users[username]) {
-    return res.status(404).json({ success: false, message: 'User not found.' });
-  }
-
-  const user = users[username];
-
-  if (!user.verified) {
-    return res.status(403).json({ success: false, message: 'Email not verified.' });
-  }
-
-  if (user.password !== password) {
-    return res.status(401).json({ success: false, message: 'Incorrect password.' });
-  }
-
-  return res.status(200).json({
-    success: true,
-    message: 'Login successful.',
-    user: {
-      name: user.name,
-      goal: user.goal,
-      experience: user.experience
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  const registerBtn = document.getElementById("registerBtn");
+  const loginBtn = document.getElementById("loginBtn");
+  const welcomePage = document.getElementById("welcomePage");
+  const registerForm = document.getElementById("registerForm");
+  const loginForm = document.getElementById("loginForm");
+  
+  // Show Register Form
+  registerBtn.addEventListener("click", () => {
+    welcomePage.style.display = "none";
+    registerForm.style.display = "block";
   });
-});
+  
+  // Show Login Form
+  loginBtn.addEventListener("click", () => {
+    welcomePage.style.display = "none";
+    loginForm.style.display = "block";
+  });
+  
+  // Go back to Welcome Page from Register Form
+  document.getElementById("backToWelcomeFromRegister").addEventListener("click", () => {
+    registerForm.style.display = "none";
+    welcomePage.style.display = "block";
+  });
+  
+  // Go back to Welcome Page from Login Form
+  document.getElementById("backToWelcomeFromLogin").addEventListener("click", () => {
+    loginForm.style.display = "none";
+    welcomePage.style.display = "block";
+  });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  // Handle Registration Submit
+  document.getElementById("submitRegister").addEventListener("click", () => {
+    const name = document.getElementById("regName").value;
+    const age = document.getElementById("regAge").value;
+    const goal = document.getElementById("regGoal").value;
+    const experience = document.getElementById("regExperience").value;
+    const email = document.getElementById("regEmail").value;
+    const username = document.getElementById("regUsername").value;
+    const password = document.getElementById("regPassword").value;
+    const confirmPassword = document.getElementById("regConfirmPassword").value;
+    
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    // Make POST request to backend
+    fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name, age, goal, experience, email, username, password
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        alert(data.message);
+      } else {
+        alert(data.message);
+        document.getElementById("regUsername").value = ""; // Clear fields
+      }
+    })
+    .catch(err => console.error("Error:", err));
+  });
+
+  // Handle Login Submit
+  document.getElementById("submitLogin").addEventListener("click", () => {
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+
+    // Make POST request to backend
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        alert(data.message);
+      } else {
+        alert(`Welcome back, ${data.user.name}!`);
+        document.getElementById("loginUsername").value = ""; // Clear fields
+      }
+    })
+    .catch(err => console.error("Error:", err));
+  });
 });
