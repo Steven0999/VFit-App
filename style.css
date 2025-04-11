@@ -1,0 +1,21 @@
+body {
+  background: #000;
+  color: #ccc;
+  font-family: Arial;
+  padding: 2rem;
+}
+
+input, select, button {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  background: orange;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
