@@ -1,9 +1,9 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vfit App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Welcome Page -->
@@ -14,7 +14,7 @@
   </div>
 
   <!-- Registration Form -->
-  <div id="registerForm" class="authForm" style="display:none">
+  <div id="registerForm" class="form-container" style="display: none;">
     <h2>Register</h2>
     <input id="regName" placeholder="Name" />
     <input id="regAge" type="number" placeholder="Age" />
@@ -33,13 +33,13 @@
   </div>
 
   <!-- Email Verification -->
-  <div id="verifyEmail" style="display:none">
-    <h2>Check your email to verify account...</h2>
+  <div id="verifyEmail" style="display: none;">
+    <h2>Check your email to verify your account</h2>
     <button onclick="completeVerification()">Simulate Email Verified</button>
   </div>
 
   <!-- Login Form -->
-  <div id="loginForm" class="authForm" style="display:none">
+  <div id="loginForm" class="form-container" style="display: none;">
     <h2>Login</h2>
     <input id="loginUsername" placeholder="Username" />
     <input id="loginPassword" type="password" placeholder="Password" />
@@ -47,7 +47,7 @@
   </div>
 
   <!-- Home Page -->
-  <div id="home" style="display:none">
+  <div id="home" style="display: none;">
     <h1>Welcome, <span id="displayName"></span>!</h1>
     <p>Goal: <span id="displayGoal"></span></p>
     <p>Experience: <span id="displayExperience"></span> years</p>
