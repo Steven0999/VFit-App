@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="auth">
+    <div id="registerForm">
+      <h2>Register</h2>
+      <input id="regName" placeholder="Name" />
+      <input id="regAge" type="number" placeholder="Age" />
+      <select id="regGoal">
+        <option value="">Select Goal</option>
+        <option value="Lose Weight">Lose Weight</option>
+        <option value="Build Muscle">Build Muscle</option>
+        <option value="Body Recomp">Body Recomp</option>
+      </select>
+      <input id="regExperience" type="number" placeholder="Years Training" />
+      <input id="regEmail" type="email" placeholder="Email" />
+      <input id="regUsername" placeholder="Username" />
+      <input id="regPassword" type="password" placeholder="Password" />
+      <input id="regConfirm" type="password" placeholder="Confirm Password" />
+      <button onclick="register()">Register</button>
+    </div>
+
+    <div id="verifyEmail" style="display:none">
+      <h2>Check your email to verify account...</h2>
+      <button onclick="completeVerification()">Simulate Email Verified</button>
+    </div>
+
+    <div id="loginForm" style="display:none">
+      <h2>Login</h2>
+      <input id="loginUsername" placeholder="Username" />
+      <input id="loginPassword" type="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <div id="home" style="display:none">
+    <h1>Welcome, <span id="displayName"></span>!</h1>
+    <p>Goal: <span id="displayGoal"></span></p>
+    <p>Experience: <span id="displayExperience"></span> years</p>
+    <h3>Coming Soon...</h3>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
