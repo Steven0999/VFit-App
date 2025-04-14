@@ -125,6 +125,9 @@
 });*/
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("JS is connected!");
+});
+document.addEventListener("DOMContentLoaded", () => {
   const API_URL = "http://localhost:3000"; // Replace with your actual backend URL
 
   const welcomePage = document.getElementById("welcomePage");
