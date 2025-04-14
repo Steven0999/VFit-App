@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     welcomePage.style.display = "block";
   });
 
-  document.getElementById("submitRegister").addEventListener("click", () => {
+  /*document.getElementById("submitRegister").addEventListener("click", () => {
     const name = document.getElementById("regName").value;
     const age = document.getElementById("regAge").value;
     const goal = document.getElementById("regGoal").value;
@@ -163,7 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("regEmail").value;
     const username = document.getElementById("regUsername").value;
     const password = document.getElementById("regPassword").value;
-    const confirmPassword = document.getElementById("regConfirmPassword").value;
+    const confirmPassword = document.getElementById("regConfirmPassword").value;*/
+  document.getElementById("submitRegister").addEventListener("click", (event) => {
+  event.preventDefault(); // prevent default behavior if needed
+  console.log("Submit button clicked!"); // debug line
 
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
