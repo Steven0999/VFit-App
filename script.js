@@ -1,130 +1,97 @@
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // Show that JavaScript is working
+  const jsMessage = document.createElement("p");
+  jsMessage.textContent = "JavaScript is working!";
+  jsMessage.style.color = "lime";
+  document.body.appendChild(jsMessage);
+
+  // Page elements
   const welcomePage = document.getElementById("welcomePage");
   const registerForm = document.getElementById("registerForm");
   const loginForm = document.getElementById("loginForm");
-  const userDashboard = document.getElementById("userDashboard");
-  const welcomeMessage = document.getElementById("welcomeMessage");
 
-  // Show Register Form
-  document.getElementById("registerBtn").addEventListener("click", () => {
+  const registerBtn = document.getElementById("registerBtn");
+  const loginBtn = document.getElementById("loginBtn");
+  const backToWelcomeFromRegister = document.getElementById("backToWelcomeFromRegister");
+  const backToWelcomeFromLogin = document.getElementById("backToWelcomeFromLogin");
+  const submitRegister = document.getElementById("submitRegister");
+  const submitLogin = document.getElementById("submitLogin");
+
+  // Create Dashboard
+  const dashboard = document.createElement("div");
+  dashboard.id = "dashboard";
+  dashboard.style.display = "none";
+  document.body.appendChild(dashboard);
+
+  // Logout button
+  const logoutBtn = document.createElement("button");
+  logoutBtn.textContent = "Logout";
+  logoutBtn.style.marginTop = "20px";
+  logoutBtn.addEventListener("click", () => {
+    dashboard.style.display = "none";
+    welcomePage.style.display = "block";
+  });
+  dashboard.appendChild(logoutBtn);
+
+  // Navigation buttons
+  registerBtn.addEventListener("click", () => {
     welcomePage.style.display = "none";
     registerForm.style.display = "block";
   });
 
-  // Show Login Form
-  document.getElementById("loginBtn").addEventListener("click", () => {
+  loginBtn.addEventListener("click", () => {
     welcomePage.style.display = "none";
     loginForm.style.display = "block";
   });
 
-  // Back to Welcome from Register
-  document.getElementById("backToWelcomeFromRegister").addEventListener("click", () => {
+  backToWelcomeFromRegister.addEventListener("click", () => {
     registerForm.style.display = "none";
     welcomePage.style.display = "block";
   });
 
-  // Back to Welcome from Login
-  document.getElementById("backToWelcomeFromLogin").addEventListener("click", () => {
+  backToWelcomeFromLogin.addEventListener("click", () => {
     loginForm.style.display = "none";
     welcomePage.style.display = "block";
   });
 
-  // Handle Registration Submit
-  document.getElementById("submitRegister").addEventListener("click", () => {
-    const name = document.getElementById("regName").value;
-    const age = document.getElementById("regAge").value;
-    const goal = document.getElementById("regGoal").value;
-    const experience = document.getElementById("regExperience").value;
-    const email = document.getElementById("regEmail").value;
-    const username = document.getElementById("regUsername").value;
-    const password = document.getElementById("regPassword").value;
-    const confirmPassword = document.getElementById("regConfirmPassword").value;
+  // Simulate Registration
+  submitRegister.addEventListener("click", (event) => {
+    event.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+    const name = document.getElementById("regName").value;
+
+    if (!name) {
+      alert("Please enter your name.");
       return;
     }
 
-    // Check if username is taken
-    fetch("http://localhost:3000/check-username", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username })
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          alert(data.message);
-        } else {
-          // Proceed to register
-          fetch("http://localhost:3000/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, age, goal, experience, email, username, password })
-          })
-            .then(res => res.json())
-            .then(data => {
-              if (!data.success) {
-                alert(data.message);
-              } else {
-                // Show user dashboard
-                registerForm.style.display = "none";
-                userDashboard.style.display = "block";
-                welcomeMessage.textContent = `Welcome, ${name}!`;
-
-                // Clear form
-                document.getElementById("regName").value = "";
-                document.getElementById("regAge").value = "";
-                document.getElementById("regGoal").value = "lose weight";
-                document.getElementById("regExperience").value = "";
-                document.getElementById("regEmail").value = "";
-                document.getElementById("regUsername").value = "";
-                document.getElementById("regPassword").value = "";
-                document.getElementById("regConfirmPassword").value = "";
-              }
-            })
-            .catch(err => console.error("Error during registration:", err));
-        }
-      })
-      .catch(err => console.error("Error checking username:", err));
+    registerForm.style.display = "none";
+    showDashboard(name);
   });
 
-  // Handle Login Submit
-  document.getElementById("submitLogin").addEventListener("click", () => {
+  // Simulate Login
+  submitLogin.addEventListener("click", (event) => {
+    event.preventDefault();
+
     const username = document.getElementById("loginUsername").value;
-    const password = document.getElementById("loginPassword").value;
 
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password })
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) {
-          alert(data.message);
-        } else {
-          loginForm.style.display = "none";
-          userDashboard.style.display = "block";
-          welcomeMessage.textContent = `Welcome, ${data.user.name}!`;
+    if (!username) {
+      alert("Enter username to login.");
+      return;
+    }
 
-          // Clear form
-          document.getElementById("loginUsername").value = "";
-          document.getElementById("loginPassword").value = "";
-        }
-      })
-      .catch(err => console.error("Login Error:", err));
+    loginForm.style.display = "none";
+    showDashboard(username);
   });
 
-  // Handle Logout
-  document.getElementById("logoutBtn").addEventListener("click", () => {
-    userDashboard.style.display = "none";
-    welcomePage.style.display = "block";
-    welcomeMessage.textContent = "";
-  });
-});*/
+  function showDashboard(name) {
+    dashboard.innerHTML = `<h2>Welcome, ${name}!</h2>`;
+    dashboard.appendChild(logoutBtn);
+    dashboard.style.display = "block";
+  }
+});
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   // Confirm JS is working
   const message = document.createElement("p");
   message.textContent = "JavaScript is working!";
@@ -274,4 +241,4 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboard.appendChild(logoutBtn);
     dashboard.style.display = "block";
   }
-});
+});*/
