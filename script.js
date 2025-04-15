@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    fetch("http://localhost:3000/check-username", {
+    fetch("https://vfit-app-1.onrender.com/check-username", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username })
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!data.success) {
           alert(data.message);
         } else {
-          fetch("http://localhost:3000/register", {
+          fetch("https://vfit-app-1.onrender.com/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, age, goal, experience, email, username, password })
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
 
-    fetch("http://localhost:3000/login", {
+    fetch("https://vfit-app-1.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
