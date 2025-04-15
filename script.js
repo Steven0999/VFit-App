@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   // Show that JavaScript is working
   const jsMessage = document.createElement("p");
   jsMessage.textContent = "JavaScript is working!";
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboard.appendChild(logoutBtn);
     dashboard.style.display = "block";
   }
-});
+});*/
 
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Confirm JS is working
   const message = document.createElement("p");
   message.textContent = "JavaScript is working!";
@@ -241,4 +241,4 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboard.appendChild(logoutBtn);
     dashboard.style.display = "block";
   }
-});*/
+});
