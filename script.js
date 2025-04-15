@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showDashboard(name) {
     dashboard.innerHTML = `<h2>Welcome, ${name} to Vaughan Fitness!</h2>`;
-    dashboard.innerHTML = '<h5>This is your App and we will work towards helping you ${goal} </h5>';
     dashboard.appendChild(logoutBtn);
     dashboard.style.display = "block";
   }
