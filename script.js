@@ -1,96 +1,3 @@
-/*document.addEventListener("DOMContentLoaded", () => {
-  // Show that JavaScript is working
-  const jsMessage = document.createElement("p");
-  jsMessage.textContent = "JavaScript is working!";
-  jsMessage.style.color = "lime";
-  document.body.appendChild(jsMessage);
-
-  // Page elements
-  const welcomePage = document.getElementById("welcomePage");
-  const registerForm = document.getElementById("registerForm");
-  const loginForm = document.getElementById("loginForm");
-
-  const registerBtn = document.getElementById("registerBtn");
-  const loginBtn = document.getElementById("loginBtn");
-  const backToWelcomeFromRegister = document.getElementById("backToWelcomeFromRegister");
-  const backToWelcomeFromLogin = document.getElementById("backToWelcomeFromLogin");
-  const submitRegister = document.getElementById("submitRegister");
-  const submitLogin = document.getElementById("submitLogin");
-
-  // Create Dashboard
-  const dashboard = document.createElement("div");
-  dashboard.id = "dashboard";
-  dashboard.style.display = "none";
-  document.body.appendChild(dashboard);
-
-  // Logout button
-  const logoutBtn = document.createElement("button");
-  logoutBtn.textContent = "Logout";
-  logoutBtn.style.marginTop = "20px";
-  logoutBtn.addEventListener("click", () => {
-    dashboard.style.display = "none";
-    welcomePage.style.display = "block";
-  });
-  dashboard.appendChild(logoutBtn);
-
-  // Navigation buttons
-  registerBtn.addEventListener("click", () => {
-    welcomePage.style.display = "none";
-    registerForm.style.display = "block";
-  });
-
-  loginBtn.addEventListener("click", () => {
-    welcomePage.style.display = "none";
-    loginForm.style.display = "block";
-  });
-
-  backToWelcomeFromRegister.addEventListener("click", () => {
-    registerForm.style.display = "none";
-    welcomePage.style.display = "block";
-  });
-
-  backToWelcomeFromLogin.addEventListener("click", () => {
-    loginForm.style.display = "none";
-    welcomePage.style.display = "block";
-  });
-
-  // Simulate Registration
-  submitRegister.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const name = document.getElementById("regName").value;
-
-    if (!name) {
-      alert("Please enter your name.");
-      return;
-    }
-
-    registerForm.style.display = "none";
-    showDashboard(name);
-  });
-
-  // Simulate Login
-  submitLogin.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const username = document.getElementById("loginUsername").value;
-
-    if (!username) {
-      alert("Enter username to login.");
-      return;
-    }
-
-    loginForm.style.display = "none";
-    showDashboard(username);
-  });
-
-  function showDashboard(name) {
-    dashboard.innerHTML = `<h2>Welcome, ${name}!</h2>`;
-    dashboard.appendChild(logoutBtn);
-    dashboard.style.display = "block";
-  }
-});*/
-
 document.addEventListener("DOMContentLoaded", () => {
   // Confirm JS is working
   const message = document.createElement("p");
@@ -237,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function showDashboard(name) {
-    dashboard.innerHTML = `<h2>Welcome, ${name}!</h2>`;
+    dashboard.innerHTML = `<h2>Welcome, ${name} to Vaughan Fitness!</h2>`;
+    dashboard.innerHTML = '<h5>This is your App and we will work towards helping you ${goal} </h5>'
     dashboard.appendChild(logoutBtn);
     dashboard.style.display = "block";
   }
